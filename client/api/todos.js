@@ -14,3 +14,8 @@ export function getTodosByCompleted(truth) {
     return request.get(`/api/v1/todos/complete/${truth}`)
     .then(res => res.body)
 }
+
+export function getTodosByCategory(category) {
+    return request.get(`/api/v1/todos/category/${category}`)
+        .then(res => res.body)
+}

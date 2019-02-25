@@ -5,6 +5,7 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 import Home from '../components/Home'
 import Completed from '../components/Completed'
 import Priority from '../components/Priority'
+import Category from '../components/Category'
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
                     <Route exact path='/' component={Home} />
                     <Route path='/completed' component={Completed} />
                     <Route path='/priority/:priority' component={Priority} />
+                    <Route path='/category/:category' component={Category} />
                 </div>
             </Router>
         )

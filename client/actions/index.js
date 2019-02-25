@@ -1,6 +1,7 @@
 import {getTodos as apiGetTodos} from '../api/todos'
 import {getTodosByCompleted as apiGetTodosByCompleted} from '../api/todos'
 import {getTodosByPriority as apiGetTodosByPriority} from '../api/todos'
+import {getTodosByCategory as apiGetTodosByCategory} from '../api/todos'
 
 export function getTodos() {
     return dispatch => {
@@ -23,6 +24,15 @@ export function getTodosByPriority(priority) {
 export function getTodosByCompleted(truth) {
     return dispatch => {
         return apiGetTodosByCompleted(truth)
+        .then(todos => {
+            dispatch(saveTodos(todos))
+        })
+    }
+}
+
+export function getTodosByCategory(category) {
+    return dispatch => {
+        return apiGetTodosByCategory(category)
         .then(todos => {
             dispatch(saveTodos(todos))
         })

@@ -1,17 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getTodosByCompleted} from '../actions'
+import {getTodosByCategory} from '../actions'
 
-class Home extends React.Component {
+class Category extends React.Component {
     componentDidMount() {
-        this.props.dispatch(getTodosByCompleted(1))
+        this.props.dispatch(getTodosByCategory(this.props.match.params.category))
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.match.params.category !== nextProps.match.params.category) {
+            this.props.dispatch(getTodosByCategory(nextProps.match.params.category))
+        }
     }
 
     render(){
         return (
             <div className="container">
                 <ul className="collection with-header">
-                <li className="collection-header"><h5>My Todos</h5></li>
+                <li className="collection-header"><h5>My Completed Todos</h5></li>
                     {this.props.todos.map(todo => {
                         return (
                             <li className="collection-item">{todo.task}</li>
@@ -29,4 +35,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Category)
