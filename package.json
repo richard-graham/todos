@@ -5,7 +5,9 @@
   "author": "Richard Graham <richgrahamdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server & webpack --watch"
+    "start": "node",
+    "dev": "nodemon server & webpack --watch",
+    "postinstall": "webpack && knex migrate:latest"
   },
   "dependencies": {
     "@babel/core": "^7.3.3",
@@ -16,6 +18,7 @@
     "express": "^4.16.4",
     "knex": "^0.16.3",
     "node-sass": "^4.11.0",
+    "pg": "^7.8.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
