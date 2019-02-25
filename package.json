@@ -5,7 +5,7 @@
   "author": "Richard Graham <richgrahamdev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node",
+    "start": "node server",
     "dev": "nodemon server & webpack --watch",
     "postinstall": "webpack && knex migrate:latest"
   },
