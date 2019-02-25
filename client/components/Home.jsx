@@ -3,22 +3,63 @@ import {connect} from 'react-redux'
 import {getTodos} from '../actions'
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+
+    // componentWillReceiveProps(nextProps) {
+    //     if (this.props.match !== nextProps.match) {
+    //         this.props.dispatch(getTodos())
+    //         console.log('hi')
+    //     }
+    // }
+
     componentDidMount() {
         this.props.dispatch(getTodos())
     }
 
+
+
     render(){
         return (
-            <div className="container">
-                <ul className="collection with-header">
-                <li className="collection-header"><h5>My Todos</h5></li>
-                    {this.props.todos.map(todo => {
-                        return (
-                            <li className="collection-item">{todo.task}</li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <React.Fragment>
+                <table className="striped">
+                    <thead>
+                        <tr>
+                            <th className="centered">Completed</th>
+                            <th>Priority</th>
+                            <th>Category</th>
+                            <th>Task</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.todos.map(todo => {
+                            return (
+                                <tr>
+                                    <td className="centered">
+                                        <form action="#">
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" checked={todo.is_complete} onChange={(e, checked) => {this.handleInputChange(checked)}} />
+                                                    <span></span>
+                                                </label>
+                                            </p>
+                                        </form>
+                                        </td>
+                                    <td>{todo.priority}</td>
+                                    <td>{todo.category}</td>
+                                    <td>{todo.task}</td>
+                                    <td>{todo.due_at}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </React.Fragment>
         )
     }
 }

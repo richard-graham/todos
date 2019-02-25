@@ -24,9 +24,16 @@ function getTodosByCompleted(is_complete, testDb) {
     return db('todos').where('is_complete', is_complete)
 }
 
+function createTodo(todo, testDb) {
+    const db = testDb || connection 
+
+    return db('todo').insert(todo)  
+}
+
 module.exports = {
     getTodos,
     getTodosByPriority,
     getTodosByCategory,
-    getTodosByCompleted
+    getTodosByCompleted,
+    createTodo
 }

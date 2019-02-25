@@ -49,6 +49,23 @@ router.get('/complete/:is_complete', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    console.log(req.body);
+    const todo = {
+        task: "Do washing",
+        priority: 3,
+        category: "home",
+        is_complete: 0,
+        due_at: "25-02-2018"
+      }
+
+    createTodo(todo)
+    .then(res => {
+        res.json(({ id }))
+    })
+    res.status(500).json({error: 'Something went wrong'})
+})
+
 
 
 module.exports = router

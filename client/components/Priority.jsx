@@ -14,6 +14,7 @@ class Priority extends React.Component {
     }
 
     render(){
+        console.log(this.state);
         return (
             <div className="container">
                 <ul className="collection with-header">

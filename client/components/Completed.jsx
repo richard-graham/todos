@@ -9,7 +9,7 @@ class Home extends React.Component {
 
     render(){
         return (
-            <div className="container">
+            <React.Fragment>
                 <ul className="collection with-header">
                 <li className="collection-header"><h5>My Todos</h5></li>
                     {this.props.todos.map(todo => {
@@ -18,7 +18,7 @@ class Home extends React.Component {
                         )
                     })}
                 </ul>
-            </div>
+            </React.Fragment>
         )
     }
 }

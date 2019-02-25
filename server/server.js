@@ -13,5 +13,7 @@ server.use('/api/v1/todos', todoRoutes)
 server.use('/api/v1/todos/priority/:priority', todoRoutes)
 server.use('/api/v1/todos/category/:category', todoRoutes)
 server.use('/api/v1/todos/complete/:is_complete', todoRoutes)
+server.use('/api/v1/todos/add', todoRoutes)
+
 
 module.exports = server 
