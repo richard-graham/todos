@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       t.integer('priority')
       t.string('category')
       t.boolean('is_complete')
-      t.date('due_at')
+      t.string('due_at')
   })
 };
 
