@@ -14,9 +14,8 @@ class Priority extends React.Component {
     }
 
     render(){
-        console.log(this.state);
         return (
-            <div className="container">
+            <React.Fragment>
                 <ul className="collection with-header">
                 <li className="collection-header"><h5>My Todos</h5></li>
                     {this.props.todos.map(todo => {
@@ -25,7 +24,7 @@ class Priority extends React.Component {
                         )
                     })}
                 </ul>
-            </div>
+            </React.Fragment    >
         )
     }
 }

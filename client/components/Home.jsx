@@ -10,13 +10,6 @@ class Home extends React.Component {
         }
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (this.props.match !== nextProps.match) {
-    //         this.props.dispatch(getTodos())
-    //         console.log('hi')
-    //     }
-    // }
-
     componentDidMount() {
         this.props.dispatch(getTodos())
     }
